@@ -1,7 +1,7 @@
 {
   "agent:assistant-circle:harness": {
     "sessionId": "1768db56-d432-4b32-ba4d-fe759fa28cbc",
-    "updatedAt": 1775386773278,
+    "updatedAt": 1775436583634,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -191,12 +191,12 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1775386739497,
+    "startedAt": 1775436565043,
     "modelProvider": "zai",
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775386739435,
+      "generatedAt": 1775436564994,
       "sessionId": "1768db56-d432-4b32-ba4d-fe759fa28cbc",
       "sessionKey": "agent:assistant-circle:harness",
       "provider": "zai",
@@ -476,14 +476,15 @@
         ]
       }
     },
-    "cacheRead": 76144,
+    "cacheRead": 99134,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 200000,
-    "inputTokens": 2191,
-    "outputTokens": 573,
-    "totalTokens": 76205,
-    "endedAt": 1775386773202,
-    "runtimeMs": 33705
+    "inputTokens": 762,
+    "outputTokens": 394,
+    "totalTokens": 99308,
+    "label": "Harness Engineerin专题",
+    "endedAt": 1775436583564,
+    "runtimeMs": 18521
   }
 }
