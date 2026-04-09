@@ -1,7 +1,7 @@
 {
   "agent:assistant-sdd-special:sdd": {
     "sessionId": "f43abf27-55dc-45d2-a03d-e35b947793bd",
-    "updatedAt": 1775723598470,
+    "updatedAt": 1775726222490,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -245,12 +245,12 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1775723340386,
+    "startedAt": 1775726191547,
     "modelProvider": "zai",
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775723340302,
+      "generatedAt": 1775726191493,
       "sessionId": "f43abf27-55dc-45d2-a03d-e35b947793bd",
       "sessionKey": "agent:assistant-sdd-special:sdd",
       "provider": "zai",
@@ -550,16 +550,16 @@
         ]
       }
     },
-    "cacheRead": 57046,
+    "cacheRead": 59414,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 200000,
-    "inputTokens": 4135,
-    "outputTokens": 1568,
-    "estimatedCostUsd": 1.13765928,
-    "totalTokens": 57776,
+    "inputTokens": 838,
+    "outputTokens": 190,
+    "estimatedCostUsd": 1.31077288,
+    "totalTokens": 59550,
     "label": "SDD专题",
-    "endedAt": 1775723598440,
-    "runtimeMs": 258054
+    "endedAt": 1775726222457,
+    "runtimeMs": 30910
   }
 }
