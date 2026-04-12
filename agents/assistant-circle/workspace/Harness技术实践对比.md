@@ -771,25 +771,29 @@ type PromptMode = "full" | "minimal" | "none";
 
 ## 八、Harness Engineering 的其他思考
 
-2026 年以来,Harness 相关的项目和框架呈爆发式增长。几乎每周都有新面孔出现。类似 deerflow、hermes-agent 这样的新项目仍在不断涌现。
+2026 年以来,Harness 相关的项目和框架呈爆发式增长。几乎每周都有新面孔出现。类似 deerflow、hermes agent 这样的新项目仍在不断涌现。
 
-### 8.1 利用 Harness Engineering 建立 Agent 分析框架
+### 8.1 利用 Harness Engineering 建立分析框架
 
-前文已经建立了一个分析框架:上下文腐烂、记忆断裂、自我评估偏差——这是 Harness Engineering 的"问题三角"。任何一个 Harness Agent,无论它叫什么名字、用什么架构,本质上都是在回应这三个问题(或其中若干个)。
+前文其实已经建立了一个分析框架:上下文腐烂、记忆断裂、自我评估偏差——这是 Harness Engineering 的"三个关键问题"。本质上,各家面对的是同一组问题,只是在用不同的方式回答。没有哪个框架"发明"了全新的问题,也没有哪个框架"解决"了所有问题。理解了这一点,新项目层出不穷这件事就不再令人困惑——它们只是同一个问题空间中的不同解法。任何一个 Harness Agent,无论它叫什么名字、用什么架构,都可以用这套分析框架进行评估。
 
-拿到一个新的 Harness Agent 项目时,可以快速回答三个问题:
+#### 举例：Hermes Agent
 
-1. **上下文腐烂**:它怎么处理长上下文?压缩、分块、还是重置?是 prompt-level 还是 training-level?
-2. **记忆断裂**:它怎么跨会话保持状态?结构化工件、持久化环境、还是不处理?
-3. **自我评估偏差**:它有没有分离生成和评估?用什么方式?多代理还是单代理?
+**定位**：开源通用 Agent 运行时（Nous Research），Python 实现，支持多模型与丰富工具集，覆盖 CLI 与 Gateway 等多入口。**不绑定**单一基座模型，也**非**专为编码场景特化的产品；用上面的分析框架仍可清晰刻画其 Harness 取舍。
 
-回答完这三个问题,这个项目的核心设计思路就基本清楚了。剩余的差异大多是实现路径或架构偏好层面的选择:
+**上下文腐烂（压缩）**：**中上**。核心在 `ContextCompressor` 的**单路径、强结构化**设计：先对尾部预算外的旧 **tool 结果**做占位替换（无 LLM 的廉价预处理），再保护对话**头部与按 token 预算的尾部**，仅对**中间段**调用摘要模型；摘要模板固定为多段结构（目标、进度、文件、决策、关键上下文等），并支持跨次压缩时**迭代合并旧摘要**；压缩后做 **tool_call / tool 结果**配对修复，避免 API 拒收；摘要失败时有冷却与静态 fallback，减少「静默丢上下文」。可选**独立辅助模型**承担摘要，与主对话模型解耦。整体上**没有** Claude Code 那种 AutoCompact / MicroCompact / SessionMemory / Compaction 的**命名分层**，但「微观缩 tool + 宏观 LLM 摘要」的能力边界有重叠。与 Cursor **训练级**压缩、Codex **服务端 compaction** 均不同，属典型的 **prompt 级工程压缩**。
 
-- Cursor 和 Claude Code 都做了上下文压缩,但一个走 training-level(Self-Summarization),一个走 prompt-level(四层压缩系统)
-- Claude Code 和 Codex 都需要管理对话历史,但一个客户端压缩,一个用 API 端点
-- Cursor 和 OpenClaw 都有多代理能力,但一个硬编码 Planner-Worker-Judge,一个提供通用 Subagent 接口
+**记忆断裂（记忆与持久化）**：**中上**。会话与消息落在 **SQLite**（`sessions` / `messages`，含 FTS5），便于查询与跨会话检索；内置 **`MEMORY.md` / `USER.md`**（位于 profile 的 `memories/`）配合 `memory` 工具与 **`MemoryManager`** 维护长期记忆，压缩前还可 **`flush_memories`**，减少「该落盘的内容被摘要卷走」。**压缩成功**时会 **`end_session(..., "compression")` 并新建 `session_id`，以 `parent_session_id` 链接旧会话**——在数据层显式表达「断点续跑」，接近 Anthropic 所说的**结构化工件交接**，只是交接物之一是**新会话行 + 摘要对话**而非单一 `progress.txt`。另支持 **`session_search`** 检索历史会话，以及**至多一个外接 memory provider** 与内置并存。持久化形态是 **关系库 + 文件记忆**，与 OpenClaw 的「工作区多 MD 注入」、Claude Code 的「三级 Agent Memory 目录」**路径不同，问题意识相近**。
 
-本质上,各家面对的是同一组问题,只是在用不同的方式回答。没有哪个框架"发明"了全新的问题,也没有哪个框架"解决"了所有问题。理解了这一点,新项目层出不穷这件事就不再令人困惑——它们只是同一个问题空间中的不同解法。
+**自我评估偏差（生成–评估分离）**：**弱**。**无**产品化的 Planner–Generator–Evaluator、**无**独立 Judge/Evaluator 角色。**`delegate_task`** 会拉起子 `AIAgent`（**隔离上下文**、受限工具集），父代理仅见**委派与摘要结果**——主要用于**并行、分任务与控上下文**，**不是**为「同一产出做独立验收」而设计的对抗式分离；子代理禁止再委派、禁止写共享 memory 等，侧重**隔离与安全**，而非**生成–评估分工**。
+
+**问题对照表**：
+
+| 挑战             | Hermes Agent 的回应方式（概括）                                                                      |
+| ---------------- | ---------------------------------------------------------------------------------------------------- |
+| **上下文腐烂**   | 结构化 LLM 摘要 + 旧 tool 占位裁剪 + 头尾保护 + 配对修复；可选辅助摘要模型                           |
+| **记忆断裂**     | SQLite 会话库 + MEMORY/USER + 压缩时会话血缘（`parent_session_id`）+ `session_search` + 可选外接记忆 |
+| **自我评估偏差** | 无硬编码评估层；`delegate_task` 提供子代理隔离与汇总，**不**等同于生成–评估分离                      |
 
 ### 8.2 关注思路,而非实现
 
