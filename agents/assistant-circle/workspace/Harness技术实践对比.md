@@ -727,7 +727,7 @@ type PromptMode = "full" | "minimal" | "none";
 
 ### 7.3 一个更细致的框架
 
-或许,这不是二选一的问题。围绕"问题三角",我们可以更细致地分析:
+或许,这不是二选一的问题。围绕 Harness ,我们可以更细致地分析:
 
 **Harness Engineering 各组件的价值随模型进步的变化**:
 
