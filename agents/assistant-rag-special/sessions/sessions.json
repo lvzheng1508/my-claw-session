@@ -1,7 +1,7 @@
 {
   "agent:assistant-rag-special:rag": {
     "sessionId": "27aecd83-9360-4658-a5e8-b34744123a16",
-    "updatedAt": 1775732083465,
+    "updatedAt": 1775902324379,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -248,9 +248,6 @@
     "startedAt": 1775732041590,
     "endedAt": 1775732052609,
     "runtimeMs": 11019,
-    "modelProvider": "zai",
-    "model": "glm-5-turbo",
-    "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
       "generatedAt": 1775732041559,
@@ -552,6 +549,10 @@
     "estimatedCostUsd": 0.008750879999999999,
     "totalTokens": 18072,
     "totalTokensFresh": true,
-    "label": "RAG"
+    "label": "RAG",
+    "providerOverride": "zai",
+    "modelOverride": "glm-5.1",
+    "modelOverrideSource": "user",
+    "liveModelSwitchPending": true
   }
 }
