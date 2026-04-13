@@ -1,7 +1,7 @@
 {
   "agent:assistant-sdd-special:sdd": {
     "sessionId": "100f64d4-b66a-4534-8c3f-28cd2c447b7c",
-    "updatedAt": 1775878036947,
+    "updatedAt": 1776076565247,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -499,6 +499,7 @@
     "inputTokens": 31258,
     "outputTokens": 209,
     "estimatedCostUsd": 0.047158399999999996,
-    "totalTokens": 31481
+    "totalTokens": 31481,
+    "label": "SDD专题"
   }
 }
