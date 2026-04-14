@@ -1,7 +1,7 @@
 {
   "agent:assistant-circle:harness": {
     "sessionId": "a5c687c0-9586-4d00-a03e-04f5f7e42188",
-    "updatedAt": 1776132441304,
+    "updatedAt": 1776181223472,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -191,10 +191,10 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1776132379065,
+    "startedAt": 1776181190783,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1776132379036,
+      "generatedAt": 1776181190654,
       "sessionId": "a5c687c0-9586-4d00-a03e-04f5f7e42188",
       "sessionKey": "agent:assistant-circle:harness",
       "provider": "zai",
@@ -214,9 +214,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 25859,
+        "chars": 25912,
         "projectContextChars": 10581,
-        "nonProjectContextChars": 15278
+        "nonProjectContextChars": 15331
       },
       "injectedWorkspaceFiles": [
         {
@@ -319,7 +319,7 @@
       },
       "tools": {
         "listChars": 0,
-        "schemaChars": 25916,
+        "schemaChars": 26280,
         "entries": [
           {
             "name": "read",
@@ -329,9 +329,9 @@
           },
           {
             "name": "edit",
-            "summaryChars": 326,
-            "schemaChars": 834,
-            "propertiesCount": 2
+            "summaryChars": 511,
+            "schemaChars": 1198,
+            "propertiesCount": 4
           },
           {
             "name": "write",
@@ -480,13 +480,13 @@
         ]
       }
     },
-    "cacheRead": 48192,
+    "cacheRead": 86912,
     "cacheWrite": 0,
     "totalTokensFresh": true,
-    "inputTokens": 12767,
-    "outputTokens": 1596,
-    "estimatedCostUsd": 1.4833983400000001,
-    "totalTokens": 49725,
+    "inputTokens": 1143,
+    "outputTokens": 421,
+    "estimatedCostUsd": 2.28219174,
+    "totalTokens": 87335,
     "label": "Harness专题",
     "providerOverride": "zai",
     "modelOverride": "glm-5.1",
@@ -494,8 +494,8 @@
     "modelProvider": "zai",
     "model": "glm-5.1",
     "contextTokens": 200000,
-    "endedAt": 1776132441246,
-    "runtimeMs": 62181
+    "endedAt": 1776181223403,
+    "runtimeMs": 32620
   },
   "agent:assistant-circle:rag": {
     "sessionId": "73b70033-2d66-4b17-9a57-3085aff6874f",
