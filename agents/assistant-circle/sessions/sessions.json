@@ -1,7 +1,7 @@
 {
   "agent:assistant-circle:harness": {
     "sessionId": "a5c687c0-9586-4d00-a03e-04f5f7e42188",
-    "updatedAt": 1776075905954,
+    "updatedAt": 1776126996086,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -191,16 +191,14 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1775898709813,
-    "modelProvider": "zai",
-    "model": "glm-5-turbo",
+    "startedAt": 1776126979747,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775898709792,
+      "generatedAt": 1776126979722,
       "sessionId": "a5c687c0-9586-4d00-a03e-04f5f7e42188",
       "sessionKey": "agent:assistant-circle:harness",
       "provider": "zai",
-      "model": "glm-5-turbo",
+      "model": "glm-5.1",
       "workspaceDir": "/Users/lvzheng/.openclaw/workspace-assistant-circle",
       "bootstrapMaxChars": 20000,
       "bootstrapTotalMaxChars": 150000,
@@ -216,9 +214,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 25916,
+        "chars": 25912,
         "projectContextChars": 10581,
-        "nonProjectContextChars": 15335
+        "nonProjectContextChars": 15331
       },
       "injectedWorkspaceFiles": [
         {
@@ -482,17 +480,22 @@
         ]
       }
     },
-    "cacheRead": 67636,
+    "cacheRead": 78208,
     "cacheWrite": 0,
     "totalTokensFresh": true,
+    "inputTokens": 520,
+    "outputTokens": 253,
+    "estimatedCostUsd": 1.2885541900000002,
+    "totalTokens": 78465,
+    "label": "Harness专题",
+    "providerOverride": "zai",
+    "modelOverride": "glm-5.1",
+    "modelOverrideSource": "user",
+    "modelProvider": "zai",
+    "model": "glm-5.1",
     "contextTokens": 200000,
-    "inputTokens": 893,
-    "outputTokens": 347,
-    "estimatedCostUsd": 0.63330064,
-    "totalTokens": 67793,
-    "endedAt": 1775898732395,
-    "runtimeMs": 22582,
-    "label": "Harness专题"
+    "endedAt": 1776126996027,
+    "runtimeMs": 16280
   },
   "agent:assistant-circle:rag": {
     "sessionId": "73b70033-2d66-4b17-9a57-3085aff6874f",
