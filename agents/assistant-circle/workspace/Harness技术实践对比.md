@@ -2,17 +2,15 @@
 
 ## 引言
 
-"Harness"并不是一个新出现的概念。早在 2023 年,AutoGPT、LangChain 等项目已经在做"类似 Harness 的事情"--只是当时没有这样命名。各大模型厂商用的词汇也各不相同:Anthropic 说 Agent / Workflow,OpenAI 说 Agents / Tools / Codex,Google 说 Agent / ADK。
+"Harness"并不是一个新出现的概念。早在 2023 年起,AutoGPT、LangChain 等项目其实已经在做"类似 Harness 的事情"--只是当时没有这样命名。与此同时,各大模型厂商使用的词汇也并不统一:Anthropic 说 Agent / Workflow,OpenAI 说 Agents / Tools / Codex,Google 说 Agent / ADK。
 
-但到了 2024-2025 年,随着 AI Agent 工程实践的深入和复杂化,"Harness"这个术语在工程圈逐渐被用来描述一个共同的关注点:**围绕大语言模型的控制与编排层**。
+2026 年 2 月,OpenAI 在《Harness engineering: leveraging Codex in an agent-first world》中正式使用了 "Harness Engineering" 这一表述,并将其放入 agent-first 软件工程的语境中进行系统化讨论。这也是目前公开材料中较早且较系统的一次正面展开。
 
-它不是一个被正式定义的标准术语,而更像是工程实践中的一个"收敛性抽象"--不同团队在解决长时间运行、复杂任务执行、可控性与可观测性问题时,逐渐走向相似的系统结构。
+不过,即便如此,Harness Engineering 仍然不是一个被正式标准化定义的术语,而更像是工程实践中的一个"收敛性抽象"--不同团队在解决长时间运行、复杂任务执行、可控性与可观测性问题时,逐渐走向相似的系统结构。
 
-本文尝试用 **Harness Engineering** 来统称这些实践,并梳理各家的差异化路径。
+本文用 **Harness Engineering** 来统称这些实践,并梳理各家的差异化路径。文章的核心不是"总结行业已有共识",而是**提出一个抽象框架,对齐各方的工程实践**。其中必然包含主观判断,欢迎讨论。
 
-这篇文章的核心不是"总结行业已有共识",而是**提出一个抽象框架,对齐各方的工程实践**。其中必然包含主观判断,欢迎讨论。
-
-过去一年,Anthropic、Cursor、OpenAI 等头部玩家在 Harness Engineering 方面展开了密集的工程探索。他们的实践各有侧重,底层模式正在趋同,但细节差异仍然显著。
+过去一年,Anthropic、Cursor、OpenAI 等头部玩家在相关方向上展开了密集探索。他们的实践各有侧重,底层模式正在趋同,但细节差异仍然显著。
 
 ---
 
@@ -717,7 +715,7 @@ type PromptMode = "full" | "minimal" | "none";
 
 ## 七、重工程还是重模型:Harness Engineering 的核心争论
 
-随着 Harness Engineering 实践的积累,一个核心争论浮现出来:**当模型能力足够强时,还需要复杂的工程脚手架吗?**
+随着 Harness Engineering 实践的积累,一个有意思的讨论浮现出来:**当模型能力足够强时,还需要复杂的工程脚手架吗?**
 
 ### 7.1 "重模型"派:相信模型
 
@@ -777,13 +775,15 @@ type PromptMode = "full" | "minimal" | "none";
 
 ### 7.4 可能会出现的分化
 
-综合来看, **Harness Engineering 不会沿单一路径演化,而会随着参与者是否掌握自主模型能力而分化。拥有模型能力的厂商会优先把问题吸收到模型侧;不掌握模型能力的框架和产品,则更依赖工程手段构建 Harness。两条路径不同,但都绕不开系统可靠性问题。**
+> *综合来看, Harness Engineering 不会沿单一路径演化,而会随着参与者是否掌握自主模型能力而分化。拥有模型能力的厂商会优先把问题吸收到模型侧;不掌握模型能力的框架和产品,则更依赖工程手段构建 Harness。*
+>
+> *这意味着,对前者而言,上下文压缩、规划稳定性、长程行为等问题更可能通过模型训练、推理栈优化和 API 能力下沉来解决;对后者而言,同样的问题则更需要通过记忆系统、分层架构、压缩策略和验证机制在工程侧显式实现。路径不同,但背后的约束没有消失,只是被吸收到不同层次。*
 
 ---
 
 ## 八、利用 Harness Engineering 建立分析框架
 
-2026 年以来,Agent 相关的项目和框架呈爆发式增长。几乎每周都有新面孔出现——deerflow、hermes agent 等新项目仍在不断涌现。
+2026 年以来,Agent 相关的项目和框架呈爆发式增长。每过一段时间都有新面孔出现——deerflow、hermes agent 等新项目仍在不断涌现。
 
 表面上看,每个项目都在说不同的故事。但用前文建立的 Harness 视角——上下文腐烂、记忆断裂、自我评估偏差——去审视,就会发现它们面对的是同一组问题,只是在用不同的方式回答。没有哪个框架"发明"了全新的问题,也没有哪个框架"解决"了所有问题。所以可以通过Harness视角建立一个统一的分析框架,对新项目做快速定位。
 
@@ -791,11 +791,35 @@ type PromptMode = "full" | "minimal" | "none";
 
 **定位**：开源通用 Agent 运行时（Nous Research），Python 实现，支持多模型与丰富工具集，覆盖 CLI 与 Gateway 等多入口。**不绑定**单一基座模型，也**非**专为编码场景特化的产品；用上面的分析框架仍可清晰刻画其 Harness 取舍。
 
-**上下文腐烂（压缩）**：**中上**。核心在 `ContextCompressor` 的**单路径、强结构化**设计：先对尾部预算外的旧 **tool 结果**做占位替换（无 LLM 的廉价预处理），再保护对话**头部与按 token 预算的尾部**，仅对**中间段**调用摘要模型；摘要模板固定为多段结构（目标、进度、文件、决策、关键上下文等），并支持跨次压缩时**迭代合并旧摘要**；压缩后做 **tool_call / tool 结果**配对修复，避免 API 拒收；摘要失败时有冷却与静态 fallback，减少「静默丢上下文」。可选**独立辅助模型**承担摘要，与主对话模型解耦。整体上**没有** Claude Code 那种 AutoCompact / MicroCompact / SessionMemory / Compaction 的**命名分层**，但「微观缩 tool + 宏观 LLM 摘要」的能力边界有重叠。与 Cursor **训练级**压缩、Codex **服务端 compaction** 均不同，属典型的 **prompt 级工程压缩**。
+**上下文腐烂（压缩）：中上。**
 
-**记忆断裂（记忆与持久化）**：**中上**。会话与消息落在 **SQLite**（`sessions` / `messages`，含 FTS5），便于查询与跨会话检索；内置 `**MEMORY.md` / `USER.md`**（位于 profile 的 `memories/`）配合 `memory` 工具与 `**MemoryManager`维护长期记忆，压缩前还可`**flush_memories`**，减少「该落盘的内容被摘要卷走」。压缩成功时会 `**end_session(..., "compression")`并新建`session_id`，以 `parent_session_id`链接旧会话——在数据层显式表达「断点续跑」，接近 Anthropic 所说的**结构化工件交接**，只是交接物之一是**新会话行 + 摘要对话**而非单一`progress.txt`。另支持 `**session_search`** 检索历史会话，以及**至多一个外接 memory provider** 与内置并存。持久化形态是 **关系库 + 文件记忆**，与 OpenClaw 的「工作区多 MD 注入」、Claude Code 的「三级 Agent Memory 目录」**路径不同，问题意识相近**。
+**机制：** Hermes 的压缩由 `ContextCompressor` 统一处理，走单路径、强结构化的流程：
 
-**自我评估偏差（生成–评估分离）**：**弱**。**无**产品化的 Planner–Generator–Evaluator、**无**独立 Judge/Evaluator 角色。`**delegate_task`** 会拉起子 `AIAgent`（**隔离上下文**、受限工具集），父代理仅见**委派与摘要结果**——主要用于**并行、分任务与控上下文**，**不是**为「同一产出做独立验收」而设计的对抗式分离；子代理禁止再委派、禁止写共享 memory 等，侧重**隔离与安全**，而非**生成–评估分工。
+1. **预处理（无 LLM）**：对超出尾部 token 预算的旧 tool 结果做占位替换，成本低、见效快
+2. **保护头尾**：对话头部和按 token 预算计算的尾部原样保留，仅对中间段调用摘要模型
+3. **结构化摘要**：摘要模板固定为多段结构（目标、进度、文件、决策、关键上下文等），跨次压缩时迭代合并旧摘要
+4. **后处理**：压缩后做 `tool_call` / `tool_result` 配对修复，避免 API 拒收；摘要失败时有冷却与静态 fallback
+
+可选独立辅助模型承担摘要，与主对话模型解耦。
+
+**定位：**典型 **prompt 级工程压缩**。没有 Claude Code 那种 AutoCompact / MicroCompact / SessionMemory / Compaction 的命名分层，但「微观缩 tool + 宏观 LLM 摘要」的能力边界有重叠；与 Cursor 的训练级压缩、Codex 的服务端 compaction 均不同。
+
+**记忆断裂（记忆与持久化）：中上。**
+
+**机制：**
+
+- **会话存储**：会话与消息落在 SQLite（`sessions` / `messages`，含 FTS5），支持查询与跨会话检索
+- **长期记忆**：内置 `MEMORY.md` / `USER.md`（位于 profile 的 `memories/`），配合 `memory` 工具与 `MemoryManager` 维护；压缩前可 `flush_memories`，减少「该落盘的内容被摘要卷走」
+- **压缩续跑**：压缩成功时 `end_session(..., "compression")` 并新建 `session_id`，以 `parent_session_id` 链接旧会话——在数据层显式表达「断点续跑」
+- **历史检索**：`session_search` 检索历史会话，至多一个外接 memory provider 与内置并存
+
+**定位：** 持久化形态是 **关系库 + 文件记忆**。压缩续跑接近 Anthropic 所说的结构化工件交接，只是交接物之一是「新会话行 + 摘要对话」而非单一 `progress.txt`；与 OpenClaw 的「工作区多 MD 注入」、Claude Code 的「三级 Agent Memory 目录」路径不同，问题意识相近。
+
+**自我评估偏差（生成–评估分离）：弱。**
+
+**机制：**`delegate_task` 会拉起子 `AIAgent`（隔离上下文、受限工具集），父代理仅见委派与摘要结果。子代理禁止再委派、禁止写共享 memory 等，侧重隔离与安全。
+
+**定位。** 无产品化的 Planner–Generator–Evaluator，无独立 Judge/Evaluator 角色。`delegate_task` 主要用于并行、分任务与控上下文，不是为「同一产出做独立验收」而设计的对抗式分离；侧重的是隔离与安全，而非生成–评估分工。
 
 **问题对照表**：
 
