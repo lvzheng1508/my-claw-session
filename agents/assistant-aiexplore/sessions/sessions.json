@@ -1,7 +1,7 @@
 {
   "agent:assistant-aiexplore:ai-explore": {
     "sessionId": "6103a77a-102c-4b7d-a603-5ca8aea8af52",
-    "updatedAt": 1776230988401,
+    "updatedAt": 1776232155541,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -191,13 +191,13 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1776230982240,
+    "startedAt": 1776232141966,
     "modelProvider": "zai",
     "model": "glm-5-turbo",
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1776230982215,
+      "generatedAt": 1776232141936,
       "sessionId": "6103a77a-102c-4b7d-a603-5ca8aea8af52",
       "sessionKey": "agent:assistant-aiexplore:ai-explore",
       "provider": "zai",
@@ -491,15 +491,15 @@
         ]
       }
     },
-    "inputTokens": 654,
-    "outputTokens": 187,
-    "cacheRead": 95583,
+    "inputTokens": 88055,
+    "outputTokens": 167,
+    "cacheRead": 8442,
     "cacheWrite": 0,
-    "totalTokens": 96237,
+    "totalTokens": 96497,
     "totalTokensFresh": true,
     "label": "AI前沿",
-    "estimatedCostUsd": 0.44136264,
-    "endedAt": 1776230988363,
-    "runtimeMs": 6123
+    "estimatedCostUsd": 0.54972272,
+    "endedAt": 1776232155498,
+    "runtimeMs": 13532
   }
 }
