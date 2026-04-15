@@ -499,7 +499,7 @@
   },
   "agent:assistant-circle:rag": {
     "sessionId": "73b70033-2d66-4b17-9a57-3085aff6874f",
-    "updatedAt": 1776249220478,
+    "updatedAt": 1776256306960,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -743,13 +743,13 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1776249156124,
+    "startedAt": 1776256284171,
     "modelProvider": "zai",
     "model": "glm-5-turbo",
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1776249156094,
+      "generatedAt": 1776256284135,
       "sessionId": "73b70033-2d66-4b17-9a57-3085aff6874f",
       "sessionKey": "agent:assistant-circle:rag",
       "provider": "zai",
@@ -1047,15 +1047,15 @@
         ]
       }
     },
-    "inputTokens": 80447,
-    "outputTokens": 1536,
-    "cacheRead": 84198,
+    "inputTokens": 88298,
+    "outputTokens": 89,
+    "cacheRead": 96991,
     "cacheWrite": 0,
-    "estimatedCostUsd": 0.4492151999999999,
-    "totalTokens": 89210,
+    "estimatedCostUsd": 0.7589507999999998,
+    "totalTokens": 97064,
     "totalTokensFresh": true,
     "label": "RAG专题",
-    "endedAt": 1776249220424,
-    "runtimeMs": 64300
+    "endedAt": 1776256306899,
+    "runtimeMs": 22728
   }
 }
