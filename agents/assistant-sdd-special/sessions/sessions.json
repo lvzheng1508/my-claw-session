@@ -1,7 +1,7 @@
 {
   "agent:assistant-sdd-special:sdd": {
     "sessionId": "100f64d4-b66a-4534-8c3f-28cd2c447b7c",
-    "updatedAt": 1776076565247,
+    "updatedAt": 1776342438620,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -191,16 +191,14 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1775878024621,
-    "modelProvider": "zai",
-    "model": "glm-5-turbo",
+    "startedAt": 1776342430264,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775878024591,
+      "generatedAt": 1776342430233,
       "sessionId": "100f64d4-b66a-4534-8c3f-28cd2c447b7c",
       "sessionKey": "agent:assistant-sdd-special:sdd",
       "provider": "zai",
-      "model": "glm-5-turbo",
+      "model": "glm-5.1",
       "workspaceDir": "/Users/lvzheng/.openclaw/workspace-assistant-sdd-special",
       "bootstrapMaxChars": 20000,
       "bootstrapTotalMaxChars": 150000,
@@ -216,9 +214,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 29080,
+        "chars": 29146,
         "projectContextChars": 13728,
-        "nonProjectContextChars": 15352
+        "nonProjectContextChars": 15418
       },
       "injectedWorkspaceFiles": [
         {
@@ -329,7 +327,7 @@
       },
       "tools": {
         "listChars": 0,
-        "schemaChars": 26280,
+        "schemaChars": 25916,
         "entries": [
           {
             "name": "read",
@@ -339,9 +337,9 @@
           },
           {
             "name": "edit",
-            "summaryChars": 511,
-            "schemaChars": 1198,
-            "propertiesCount": 4
+            "summaryChars": 326,
+            "schemaChars": 834,
+            "propertiesCount": 2
           },
           {
             "name": "write",
@@ -490,16 +488,21 @@
         ]
       }
     },
-    "cacheRead": 18600,
+    "cacheRead": 77312,
     "cacheWrite": 0,
     "totalTokensFresh": true,
-    "endedAt": 1775878036872,
-    "runtimeMs": 12251,
+    "inputTokens": 915,
+    "outputTokens": 47,
+    "estimatedCostUsd": 1.6736163,
+    "totalTokens": 78227,
+    "label": "SDD专题",
+    "providerOverride": "zai",
+    "modelOverride": "glm-5.1",
+    "modelOverrideSource": "user",
+    "modelProvider": "zai",
+    "model": "glm-5.1",
     "contextTokens": 200000,
-    "inputTokens": 31258,
-    "outputTokens": 209,
-    "estimatedCostUsd": 0.047158399999999996,
-    "totalTokens": 31481,
-    "label": "SDD专题"
+    "endedAt": 1776342438581,
+    "runtimeMs": 8317
   }
 }

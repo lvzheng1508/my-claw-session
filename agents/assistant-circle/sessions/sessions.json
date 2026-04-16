@@ -1,7 +1,7 @@
 {
   "agent:assistant-circle:harness": {
     "sessionId": "a5c687c0-9586-4d00-a03e-04f5f7e42188",
-    "updatedAt": 1776219872448,
+    "updatedAt": 1776329422295,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -190,8 +190,8 @@
       ],
       "version": 0
     },
-    "status": "done",
-    "startedAt": 1776219618149,
+    "status": "running",
+    "startedAt": 1776329418993,
     "systemPromptReport": {
       "source": "run",
       "generatedAt": 1776219618124,
@@ -493,13 +493,11 @@
     "modelOverrideSource": "user",
     "modelProvider": "zai",
     "model": "glm-5.1",
-    "contextTokens": 200000,
-    "endedAt": 1776219872386,
-    "runtimeMs": 254237
+    "contextTokens": 200000
   },
   "agent:assistant-circle:rag": {
     "sessionId": "73b70033-2d66-4b17-9a57-3085aff6874f",
-    "updatedAt": 1776318923195,
+    "updatedAt": 1776340960473,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -743,10 +741,10 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1776318890712,
+    "startedAt": 1776340953916,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1776318890615,
+      "generatedAt": 1776340953867,
       "sessionId": "73b70033-2d66-4b17-9a57-3085aff6874f",
       "sessionKey": "agent:assistant-circle:rag",
       "provider": "zai",
@@ -1044,8 +1042,8 @@
         ]
       }
     },
-    "estimatedCostUsd": 2.76080911,
-    "totalTokens": 58056,
+    "estimatedCostUsd": 4.4584794599999995,
+    "totalTokens": 96817,
     "totalTokensFresh": true,
     "label": "RAG专题",
     "providerOverride": "zai",
@@ -1078,11 +1076,11 @@
         }
       }
     ],
-    "endedAt": 1776318923115,
-    "runtimeMs": 32403,
-    "inputTokens": 46248,
-    "outputTokens": 803,
-    "cacheRead": 57344,
-    "cacheWrite": 0
+    "inputTokens": 177,
+    "outputTokens": 6,
+    "cacheRead": 96640,
+    "cacheWrite": 0,
+    "endedAt": 1776340960406,
+    "runtimeMs": 6490
   }
 }
