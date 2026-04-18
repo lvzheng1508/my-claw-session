@@ -1,7 +1,7 @@
 {
   "agent:assistant-aiexplore:ai-explore": {
     "sessionId": "6103a77a-102c-4b7d-a603-5ca8aea8af52",
-    "updatedAt": 1776232155541,
+    "updatedAt": 1776484611983,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -191,20 +191,17 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1776232141966,
-    "modelProvider": "zai",
-    "model": "glm-5-turbo",
-    "contextTokens": 200000,
+    "startedAt": 1776484591099,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1776232141936,
+      "generatedAt": 1776484591062,
       "sessionId": "6103a77a-102c-4b7d-a603-5ca8aea8af52",
       "sessionKey": "agent:assistant-aiexplore:ai-explore",
       "provider": "zai",
-      "model": "glm-5-turbo",
+      "model": "glm-5.1",
       "workspaceDir": "/Users/lvzheng/.openclaw/workspace-assistant-aiexplore",
-      "bootstrapMaxChars": 20000,
-      "bootstrapTotalMaxChars": 150000,
+      "bootstrapMaxChars": 12000,
+      "bootstrapTotalMaxChars": 60000,
       "bootstrapTruncation": {
         "warningMode": "once",
         "warningShown": false,
@@ -217,9 +214,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 27314,
-        "projectContextChars": 12082,
-        "nonProjectContextChars": 15232
+        "chars": 29484,
+        "projectContextChars": 11882,
+        "nonProjectContextChars": 17602
       },
       "injectedWorkspaceFiles": [
         {
@@ -330,7 +327,7 @@
       },
       "tools": {
         "listChars": 0,
-        "schemaChars": 25916,
+        "schemaChars": 27416,
         "entries": [
           {
             "name": "read",
@@ -448,9 +445,9 @@
           },
           {
             "name": "web_search",
-            "summaryChars": 93,
-            "schemaChars": 446,
-            "propertiesCount": 4
+            "summaryChars": 167,
+            "schemaChars": 248,
+            "propertiesCount": 2
           },
           {
             "name": "web_fetch",
@@ -484,22 +481,43 @@
           },
           {
             "name": "memory_get",
-            "summaryChars": 207,
+            "summaryChars": 239,
             "schemaChars": 249,
             "propertiesCount": 4
+          },
+          {
+            "name": "tavily_search",
+            "summaryChars": 133,
+            "schemaChars": 1033,
+            "propertiesCount": 8
+          },
+          {
+            "name": "tavily_extract",
+            "summaryChars": 117,
+            "schemaChars": 665,
+            "propertiesCount": 5
           }
         ]
       }
     },
-    "inputTokens": 88055,
-    "outputTokens": 167,
-    "cacheRead": 8442,
+    "inputTokens": 1592,
+    "outputTokens": 141,
+    "cacheRead": 107328,
     "cacheWrite": 0,
-    "totalTokens": 96497,
+    "totalTokens": 108836,
     "totalTokensFresh": true,
     "label": "AI前沿",
-    "estimatedCostUsd": 0.54972272,
-    "endedAt": 1776232155498,
-    "runtimeMs": 13532
+    "estimatedCostUsd": 1.33101647,
+    "providerOverride": "zai",
+    "modelOverride": "glm-5.1",
+    "modelOverrideSource": "user",
+    "fallbackNoticeSelectedModel": "zai/glm-5.1",
+    "fallbackNoticeActiveModel": "zai/glm-5-turbo",
+    "fallbackNoticeReason": "selected model unavailable",
+    "modelProvider": "zai",
+    "model": "glm-5.1",
+    "contextTokens": 200000,
+    "endedAt": 1776484611871,
+    "runtimeMs": 20772
   }
 }
