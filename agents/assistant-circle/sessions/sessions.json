@@ -497,7 +497,7 @@
   },
   "agent:assistant-circle:rag": {
     "sessionId": "73b70033-2d66-4b17-9a57-3085aff6874f",
-    "updatedAt": 1776340960473,
+    "updatedAt": 1776680628036,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -741,17 +741,17 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1776340953916,
+    "startedAt": 1776680624741,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1776340953867,
+      "generatedAt": 1776680624685,
       "sessionId": "73b70033-2d66-4b17-9a57-3085aff6874f",
       "sessionKey": "agent:assistant-circle:rag",
       "provider": "zai",
-      "model": "glm-5.1",
+      "model": "glm-5-turbo",
       "workspaceDir": "/Users/lvzheng/.openclaw/workspace-assistant-circle",
-      "bootstrapMaxChars": 20000,
-      "bootstrapTotalMaxChars": 150000,
+      "bootstrapMaxChars": 12000,
+      "bootstrapTotalMaxChars": 60000,
       "bootstrapTruncation": {
         "warningMode": "once",
         "warningShown": false,
@@ -764,9 +764,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 27570,
-        "projectContextChars": 10581,
-        "nonProjectContextChars": 16989
+        "chars": 29692,
+        "projectContextChars": 10381,
+        "nonProjectContextChars": 19311
       },
       "injectedWorkspaceFiles": [
         {
@@ -881,7 +881,7 @@
       },
       "tools": {
         "listChars": 0,
-        "schemaChars": 25916,
+        "schemaChars": 27416,
         "entries": [
           {
             "name": "read",
@@ -999,9 +999,9 @@
           },
           {
             "name": "web_search",
-            "summaryChars": 93,
-            "schemaChars": 446,
-            "propertiesCount": 4
+            "summaryChars": 167,
+            "schemaChars": 248,
+            "propertiesCount": 2
           },
           {
             "name": "web_fetch",
@@ -1035,23 +1035,29 @@
           },
           {
             "name": "memory_get",
-            "summaryChars": 207,
+            "summaryChars": 239,
             "schemaChars": 249,
             "propertiesCount": 4
+          },
+          {
+            "name": "tavily_search",
+            "summaryChars": 133,
+            "schemaChars": 1033,
+            "propertiesCount": 8
+          },
+          {
+            "name": "tavily_extract",
+            "summaryChars": 117,
+            "schemaChars": 665,
+            "propertiesCount": 5
           }
         ]
       }
     },
-    "estimatedCostUsd": 4.4584794599999995,
-    "totalTokens": 96817,
+    "estimatedCostUsd": 5.122727579999999,
+    "totalTokens": 111990,
     "totalTokensFresh": true,
     "label": "RAG专题",
-    "providerOverride": "zai",
-    "modelOverride": "glm-5.1",
-    "modelOverrideSource": "user",
-    "modelProvider": "zai",
-    "model": "glm-5.1",
-    "contextTokens": 200000,
     "compactionCheckpoints": [
       {
         "checkpointId": "a3cc5dd4-17e1-4b78-ae5e-14271a049d03",
@@ -1076,11 +1082,14 @@
         }
       }
     ],
-    "inputTokens": 177,
-    "outputTokens": 6,
-    "cacheRead": 96640,
+    "inputTokens": 91,
+    "outputTokens": 8,
+    "cacheRead": 111899,
     "cacheWrite": 0,
-    "endedAt": 1776340960406,
-    "runtimeMs": 6490
+    "modelProvider": "zai",
+    "model": "glm-5-turbo",
+    "contextTokens": 200000,
+    "endedAt": 1776680627974,
+    "runtimeMs": 3233
   }
 }

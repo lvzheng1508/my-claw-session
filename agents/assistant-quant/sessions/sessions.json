@@ -1,7 +1,7 @@
 {
   "agent:assistant-quant:ai-quant": {
     "sessionId": "6edc31bb-9a21-435b-bf53-4837ffa8652a",
-    "updatedAt": 1776505992342,
+    "updatedAt": 1776671705463,
     "providerOverride": "zai",
     "modelOverride": "glm-5.1",
     "modelOverrideSource": "user",
@@ -319,18 +319,18 @@
       ],
       "version": 0
     },
-    "status": "done",
-    "startedAt": 1776505860209,
+    "status": "failed",
+    "startedAt": 1776671572414,
     "modelProvider": "zai",
-    "model": "glm-5.1",
+    "model": "glm-4.7",
     "contextTokens": 200000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1776505860174,
+      "generatedAt": 1776671602503,
       "sessionId": "6edc31bb-9a21-435b-bf53-4837ffa8652a",
       "sessionKey": "agent:assistant-quant:ai-quant",
       "provider": "zai",
-      "model": "glm-5.1",
+      "model": "glm-4.7",
       "workspaceDir": "/Users/lvzheng/.openclaw/workspace-assistant-quant",
       "bootstrapMaxChars": 12000,
       "bootstrapTotalMaxChars": 60000,
@@ -346,9 +346,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 33766,
-        "projectContextChars": 13485,
-        "nonProjectContextChars": 20281
+        "chars": 33464,
+        "projectContextChars": 13235,
+        "nonProjectContextChars": 20229
       },
       "injectedWorkspaceFiles": [
         {
@@ -379,16 +379,16 @@
           "name": "IDENTITY.md",
           "path": "/Users/lvzheng/.openclaw/workspace-assistant-quant/IDENTITY.md",
           "missing": false,
-          "rawChars": 633,
-          "injectedChars": 633,
+          "rawChars": 399,
+          "injectedChars": 399,
           "truncated": false
         },
         {
           "name": "USER.md",
           "path": "/Users/lvzheng/.openclaw/workspace-assistant-quant/USER.md",
           "missing": false,
-          "rawChars": 474,
-          "injectedChars": 474,
+          "rawChars": 458,
+          "injectedChars": 458,
           "truncated": false
         },
         {
@@ -652,15 +652,18 @@
         ]
       }
     },
-    "inputTokens": 4738,
-    "outputTokens": 4586,
-    "cacheRead": 82560,
+    "inputTokens": 55895,
+    "outputTokens": 900,
+    "cacheRead": 64554,
     "cacheWrite": 0,
-    "estimatedCostUsd": 0.9775566,
-    "totalTokens": 86849,
+    "estimatedCostUsd": 1.998594065,
+    "totalTokens": 64587,
     "totalTokensFresh": true,
     "label": "Quant",
-    "endedAt": 1776505992275,
-    "runtimeMs": 132066
+    "fallbackNoticeSelectedModel": "zai/glm-5.1",
+    "fallbackNoticeActiveModel": "zai/glm-4.7",
+    "fallbackNoticeReason": "rate limit",
+    "endedAt": 1776671576705,
+    "runtimeMs": 4291
   }
 }
